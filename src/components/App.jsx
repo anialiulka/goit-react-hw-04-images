@@ -57,11 +57,14 @@ export const App = () => {
           setTotalImages(images.totalHits);
         }
       })
-      .catch(error => setErrorType(error))
+      .catch(error => {
+        setErrorType(error);
+        console.log(errorType);
+      })
       .finally(() => {
         setIsLoading(false);
       });
-  }, [searchTerm, page]);
+  }, [searchTerm, page, errorType]);
 
   return (
     <>

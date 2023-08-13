@@ -12,7 +12,7 @@ export const App = () => {
   const [modalImage, setModalImage] = useState('');
   const [images, setImages] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState(null);
+  const [errorType, setErrorType] = useState(null);
   const [page, setPage] = useState(1);
   const [totalImages, setTotalImages] = useState(0);
 
@@ -57,7 +57,7 @@ export const App = () => {
           setTotalImages(images.totalHits);
         }
       })
-      .catch(error => setError(error))
+      .catch(error => setErrorType(error))
       .finally(() => {
         setIsLoading(false);
       });
